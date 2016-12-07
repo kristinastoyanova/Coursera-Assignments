@@ -9,15 +9,22 @@
     function LunchCheckController($scope, $filter) {
         $scope.list = '';
         $scope.message = '';
+        $scope.style = '';
 
         $scope.printMessage =  function(list) {
-            var count = $scope.list.split(',').filter(n => n != '').length;
-            if(count == 0)
+            var count = $scope.list.split(',').filter(n => n.trim() != '').length;//empty items are not counted
+            if(count == 0) {
                 $scope.message = "Please enter data first!";
-            else if (count > 3)
+                $scope.style = 'red';
+            }
+            else if (count > 3) {
                 $scope.message = "Too much!";
-            else
+                $scope.style = 'green';
+            }
+            else {
                 $scope.message = "Enjoy!";
+                $scope.style   = 'green';
+            }
         }
     };
 
