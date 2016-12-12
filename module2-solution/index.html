@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app = "ShoppingListCheckOff">
   <head>
     <title>Shopping List Check Off</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,13 +23,13 @@
     </style>
   </head>
 <body>
-  <div class="container">
+<div class="container">
   <h1>Shopping List Check Off</h1>
 
   <div class="row">
 
     <!-- To Buy List -->
-    <div class="col-md-6">
+    <div class="col-md-6" ng-controller = "ToBuyController as ToBuy">
      <h2>To Buy:</h2>
      <ul>
        <li>Buy 10 cookies <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
@@ -39,7 +39,7 @@
     </div>
 
     <!-- Already Bought List -->
-    <div class="col-md-6">
+    <div class="col-md-6" ng-controller = "AlreadyBoughtController as AlreadyBought">
      <h2>Already Bought:</h2>
      <ul>
        <li>Bought 10 cookies</li>
@@ -48,6 +48,7 @@
     </div>
   </div>
 </div>
-
+<script src="angular.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
