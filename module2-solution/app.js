@@ -13,16 +13,18 @@
         var toBuy = this;
 
         toBuy.items = ShoppingListCheckOffService.itemsToBuy;
-        toBuy.removeItem = function (itemIndex) {
-            ShoppingListCheckOffService.removeItem(itemIndex) {
 
-            }
+        toBuy.moveItem = function (itemIndex) {
+            ShoppingListCheckOffService.moveItem(itemIndex, toBuy.items[itemIndex].name, toBuy.items[itemIndex].quantity);
         };
 
 
     };
 
     function AlreadyBoughtController (ShoppingListCheckOffService) {
+        var alreadyBought = this;
+
+        alreadyBought.items = ShoppingListCheckOffService.itemsBought;
 
     };
 
@@ -33,21 +35,19 @@
             { name: "cookies", quantity: 10 },
             { name: "coke", quantity: 5 }
             ];
+
         service.itemsBought = [];
 
-        service.removeItem = function (itemIndex) {
-
-            service.itemsToBuy.splice(itemIndex, 1);
-        };
-
-        service.addItem = function (itemName, quantity) {
+        service.moveItem = function (itemIndex, itemName, quantity) {
             var item = {
                 name: itemName,
                 quantity: quantity
             };
 
             service.itemsBought.push(item);
-        }
+
+            service.itemsToBuy.splice(itemIndex, 1);
+        };
     };
 
 
